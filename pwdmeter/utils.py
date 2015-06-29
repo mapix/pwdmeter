@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import marisa_trie
-from os.path import join, abspath, dirname
 
 
 class Singleton(type):
@@ -18,9 +17,12 @@ class Resource(object):
 
     __metaclass__ = Singleton
 
+    @property
+    def path(self):
+        raise NotImplementedError
+
     def __init__(self):
-        path = join(abspath(dirname(__file__)), 'res/%s.txt' % self.kind)
-        self.trie = marisa_trie.Trie(map(lambda x:x.decode('utf-8'), open(path)))
+        self.trie = marisa_trie.Trie(map(lambda x:x.decode('utf-8'), open(self.path)))
 
     def check(self, value):
         return self.trie.has_keys_with_prefix(value.lower().decode('utf-8'))
