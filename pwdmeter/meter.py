@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class Meter(object):
 
@@ -12,7 +16,7 @@ class Meter(object):
         feedbacks = {}
         for factor in self.factors:
             score, feedback = factor.test(value)
-            print factor.category, score, feedback
+            logger.debug("%s: %s, %s" % (factor.category, score, feedback))
             if feedback is not None:
                 feedbacks[factor.category] = feedback
             total_score *= score

@@ -13,28 +13,32 @@ from pwdmeter import Meter, NonASCIIFactor, NonDictionaryFactor, LengthFactor, V
 
 class MeterTest(TestCase):
 
+    def setUp(self):
+        self.m = Meter([NonDictionaryFactor(), NonASCIIFactor(), LengthFactor(), VarietyFactor(), CasemixFactor(), CharmixFactor()])
+        self.threshold = self.m.threshold
+        super(MeterTest, self).setUp()
+
     @property
     def data(self):
-        return {
-            "",
-            ",",
-            "12345678",
-            "asdf",
-            "pass",
-            "fewsIa",
-            "fewsIa1234",
-            "fewsIa1234.*&",
-            "你好",
-            "你好啊的算法第三方",
-        }
+        return [
+            ("",                       False, []),
+            (",",                      False, []),
+            ("12345678",               False, []),
+            ("asdf",                   False, []),
+            ("pass",                   False, []),
+            ("fewsIa",                 True, []),
+            ("fewsIa1234",             True, []),
+            ("fewsIa1234.*&",          True, []),
+            ("你好",                   True, []),
+            ("你好啊的算法第三方",     True, []),
+            ("douban",                 False, []),
+            ("mapix",                  False, []),
+        ]
+
+    def p(self, value):
+        pprint(value)
 
     def test_meter(self):
-        m = Meter([NonDictionaryFactor(), NonASCIIFactor(), LengthFactor(), VarietyFactor(), CasemixFactor(), CharmixFactor()])
-        for pwd in self.data:
-            print "{:*^40}".format(pwd if pwd else '<empty>')
-            score, feedbacks = m.test(pwd)
-            print "score: ", score
-            print "feedbacks: "
-            pprint(feedbacks)
-            print
-
+        for pwd, condition, _ in self.data:
+            score, feedbacks = self.m.test(pwd)
+            assert (score > 0.5) is condition

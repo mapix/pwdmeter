@@ -30,7 +30,6 @@ class Sigmoid(object):
         self.target = float(target)
 
     def __call__(self, x):
-        #return self.target * x / sqrt(self.target + x ** 2)
         return self.target * float(x) / (self.target + fabs(x))
 
     def calc(self, x):

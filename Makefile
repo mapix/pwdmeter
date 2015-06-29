@@ -9,3 +9,6 @@ gettext_gen_local:
 gettext_compile:
 	(cd i18n && msgfmt cn.po --output-file cn/LC_MESSAGES/pwdmeter.mo)
 	(cd i18n && msgfmt en.po --output-file en/LC_MESSAGES/pwdmeter.mo)
+
+test:
+	python -m unittest discover tests
