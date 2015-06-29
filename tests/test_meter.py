@@ -3,8 +3,10 @@
 from pprint import pprint
 from unittest import TestCase
 
+import os
 import sys
 import os.path
+os.environ['PWDMETER_GETTEXT_LANGUAGE'] = 'cn'
 sys.path.insert(0, os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from pwdmeter import Meter, NonASCIIFactor, NonDictionaryFactor, LengthFactor, VarietyFactor, CasemixFactor, CharmixFactor
 
@@ -15,6 +17,7 @@ class MeterTest(TestCase):
     def data(self):
         return {
             "",
+            ",",
             "12345678",
             "asdf",
             "pass",

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from gettext import gettext
+import os
+import os.path
+import gettext
 
-
-def _(message, *args, **kwargs):
-    if args or kwargs:
-        return gettext(message).format(*args, **kwargs)
-    return gettext(message)
+resource_path = os.path.join(os.path.dirname(os.path.abspath(os.path.dirname(__file__))), 'i18n')
+trans = gettext.translation('pwdmeter', localedir=resource_path, languages=[os.getenv('PWDMETER_GETTEXT_LANGUAGE', 'en')], fallback=True)
+_ = trans.gettext

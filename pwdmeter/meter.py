@@ -3,7 +3,7 @@
 
 class Meter(object):
 
-    def __init__(self, factors, threshold=0.75):
+    def __init__(self, factors, threshold=0.75, language='en'):
         self.factors = factors
         self.threshold = float(threshold)
 

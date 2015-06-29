@@ -10,7 +10,6 @@ class NonDictionaryFactor(Factor):
     category = 'non_dictionary'
     lx_min = 0.0
     lx_max = 1.0
-    message = 'Avoid using one of the ten thousand most common passwords'
 
     def __init__(self, ly_min=0.01, ly_max=1.0, **kwargs):
         self.resource = CommonResource()
@@ -18,7 +17,7 @@ class NonDictionaryFactor(Factor):
 
     def _test(self, value):
         if self.resource.check(value):
-            return (self.lx_min, _(self.message))
+            return (self.lx_min, _('Avoid using most common passwords'))
         return (self.lx_max, None)
 
 

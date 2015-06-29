@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-29 16:48+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pwdmeter/factors/length.py:27
+msgid "Increase the length of the password"
+msgstr ""
+
+#: pwdmeter/factors/variety.py:28 pwdmeter/factors/variety.py:30
+msgid "Minimize character duplicates and repetitions"
+msgstr ""
+
+#: pwdmeter/factors/charmix.py:32
+msgid "Use a good mix of numbers, letters, and symbols"
+msgstr ""
+
+#: pwdmeter/factors/non_ascii.py:25
+msgid "Use non-ASCII chars"
+msgstr ""
+
+#: pwdmeter/factors/casemix.py:27 pwdmeter/factors/casemix.py:29
+msgid "Use a good mix of upper case and lower case letters"
+msgstr ""
+
+#: pwdmeter/factors/non_dictionary.py:20
+msgid "Avoid using most common passwords"
+msgstr ""

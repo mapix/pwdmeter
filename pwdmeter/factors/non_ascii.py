@@ -12,7 +12,6 @@ class NonASCIIFactor(Factor):
     category = 'non_ascii'
     lx_min = 0.0
     lx_max = 1.0
-    message = 'use non ascii value'
 
     non_ascii_re = re.compile('[^a-zA-Z0-9_]')
 
@@ -23,6 +22,6 @@ class NonASCIIFactor(Factor):
     def _test(self, value):
         count = len(self.non_ascii_re.findall(value))
         if not count:
-            return self.lx_min, _(self.message)
+            return self.lx_min, _('Use non-ASCII chars')
         score = self.ajust(count)
         return score, None

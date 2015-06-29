@@ -10,7 +10,6 @@ class LengthFactor(Factor):
     category = 'length'
     lx_min = None
     lx_max = None
-    message = 'Increase the length of the password'
 
     def __init__(self, length=8, **kwargs):
         self.length = length
@@ -25,4 +24,4 @@ class LengthFactor(Factor):
             score = (1.0 - self.lx_min) * (float(len(value)) / self.length) ** 2
         else:
             score = self.ajust(len(value))
-        return score, (None if score >= self.threshold else _(self.message))
+        return score, (None if score >= self.threshold else _('Increase the length of the password'))
