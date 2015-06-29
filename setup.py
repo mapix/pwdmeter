@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pwdmeter',
-    version='0.1.0',
+    version='0.1.1',
     author='mapix',
     author_email='mapix.me@gmail.com',
     description='A password strength measuring library.',
