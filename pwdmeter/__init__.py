@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .meter import Meter    # NOQA
+from .meter import Meter, test    # NOQA
 from .factors.factor import Factor                           # NOQA
 from .factors.casemix import CasemixFactor                   # NOQA
 from .factors.charmix import CharmixFactor                   # NOQA

@@ -21,3 +21,9 @@ class Meter(object):
                 feedbacks[factor.category] = feedback
             total_score *= score
         return total_score, None if total_score >= self.threshold else feedbacks
+
+
+def test(value):
+    from pwdmeter import NonASCIIFactor, NonDictionaryFactor, LengthFactor, VarietyFactor, CasemixFactor, CharmixFactor
+    m = Meter([NonDictionaryFactor(), NonASCIIFactor(), LengthFactor(), VarietyFactor(), CasemixFactor(), CharmixFactor()])
+    return m.test(value)
