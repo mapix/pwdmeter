@@ -30,7 +30,7 @@ class MeterTest(TestCase):
             ("fewsIa",                 True, []),
             ("fewsIa1234",             True, []),
             ("fewsIa1234.*&",          True, []),
-            ("你好",                   True, []),
+            ("你好啊",                 False, []),
             ("你好啊的算法第三方",     True, []),
             ("douban",                 False, []),
             ("mapix",                  False, []),

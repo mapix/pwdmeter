@@ -23,7 +23,7 @@ class Resource(with_metaclass(Singleton, object)):
         raise NotImplementedError
 
     def __init__(self):
-        self.trie = marisa_trie.Trie([x.decode('utf-8') for x in open(self.path)])
+        self.trie = marisa_trie.Trie([x for x in open(self.path)])
 
     def check(self, value):
-        return self.trie.has_keys_with_prefix(value.lower().decode('utf-8'))
+        return self.trie.has_keys_with_prefix(value.lower())

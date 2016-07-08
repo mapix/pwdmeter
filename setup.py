@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pwdmeter',
-    version='0.2.0',
+    version='0.3.0',
     author='mapix',
     author_email='mapix.me@gmail.com',
     description='A password strength measuring library.',
@@ -16,7 +16,7 @@ setup(
     platforms=['any'],
     zip_safe=False,
     include_package_data=True,
-    install_requires=['marisa-trie==0.7.2'],
+    install_requires=['marisa-trie==0.7.2', 'future'],
     classifiers=[
         "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
