@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from builtins import object
 
 from abc import ABCMeta, abstractmethod, abstractproperty
 
 from pwdmeter.math import SectionMap
+from future.utils import with_metaclass
 
 
-class Factor(object):
-
-    __metaclass__ = ABCMeta
+class Factor(with_metaclass(ABCMeta, object)):
 
     @abstractproperty
     def category(self):

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
 from .meter import Meter, test    # NOQA
 from .factors.factor import Factor                           # NOQA
 from .factors.casemix import CasemixFactor                   # NOQA

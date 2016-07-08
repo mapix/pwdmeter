@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import division
+from __future__ import unicode_literals
+from builtins import range
+from past.utils import old_div
 from pwdmeter.i18n import _
 from pwdmeter.math import Descend
 from pwdmeter.factors.factor import Factor
@@ -26,5 +30,5 @@ class VarietyFactor(Factor):
             return self.lx_max, None
         elif same_count == len(value):
             return self.lx_min, _('Minimize character duplicates and repetitions')
-        score = self.ajust(float(same_count) / float(len(value)))
+        score = self.ajust(old_div(float(same_count), float(len(value))))
         return score, (None if score >= self.threshold else _('Minimize character duplicates and repetitions'))

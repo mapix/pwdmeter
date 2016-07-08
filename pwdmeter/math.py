@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import
+from __future__ import division
+from __future__ import unicode_literals
+from builtins import object
+from past.utils import old_div
 from math import sqrt, fabs
 
 
@@ -15,8 +19,8 @@ class SectionMap(object):
 
     def __call__(self, v):
         v = float(v)
-        r = (2.0 * (1.0 / self.skew -1.0) ** 2.0 + 1.0 + 2.0 * (1.0 /self.skew - 1.0 ))
-        return (self.ly_max - self.ly_min) * (sqrt(r - ((v - self.lx_min) / (self.lx_max - self.lx_min) - 1.0 / self.skew) ** 2.0) + 1.0 - 1.0 / self.skew) + self.ly_min
+        r = (2.0 * (old_div(1.0, self.skew) -1.0) ** 2.0 + 1.0 + 2.0 * (old_div(1.0,self.skew) - 1.0 ))
+        return (self.ly_max - self.ly_min) * (sqrt(r - (old_div((v - self.lx_min), (self.lx_max - self.lx_min)) - old_div(1.0, self.skew)) ** 2.0) + 1.0 - old_div(1.0, self.skew)) + self.ly_min
 
     def calc(self, v):
         return self(v)
@@ -44,7 +48,7 @@ class Descend(object):
         self.end = end
 
     def __call__(self, x):
-        return self.begin * (self.tardiness / (fabs(x) + self.tardiness)) + self.end
+        return self.begin * (old_div(self.tardiness, (fabs(x) + self.tardiness))) + self.end
 
     def calc(self, x):
         return self(x)

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
 import re
 
 from pwdmeter.i18n import _
@@ -24,7 +25,7 @@ class CharmixFactor(Factor):
         number_count = len(self.number_re.findall(value))
         letter_count = len(self.letter_re.findall(value))
         symbol_count = len(self.symbol_re.findall(value))
-        mixed_count = filter(None, [number_count, letter_count, symbol_count])
+        mixed_count = [_f for _f in [number_count, letter_count, symbol_count] if _f]
         if len(mixed_count) == 2:
             score += 1
         if len(mixed_count) == 3:

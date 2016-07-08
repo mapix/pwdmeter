@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+from builtins import object
 
 import marisa_trie
+from future.utils import with_metaclass
 
 
 class Singleton(type):
@@ -13,16 +16,14 @@ class Singleton(type):
         return cls._instances[cls]
 
 
-class Resource(object):
-
-    __metaclass__ = Singleton
+class Resource(with_metaclass(Singleton, object)):
 
     @property
     def path(self):
         raise NotImplementedError
 
     def __init__(self):
-        self.trie = marisa_trie.Trie(map(lambda x:x.decode('utf-8'), open(self.path)))
+        self.trie = marisa_trie.Trie([x.decode('utf-8') for x in open(self.path)])
 
     def check(self, value):
         return self.trie.has_keys_with_prefix(value.lower().decode('utf-8'))

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
 from setuptools import setup, find_packages
 
 setup(
     name='pwdmeter',
-    version='0.1.6',
+    version='0.2.0',
     author='mapix',
     author_email='mapix.me@gmail.com',
     description='A password strength measuring library.',
@@ -17,13 +18,9 @@ setup(
     include_package_data=True,
     install_requires=['marisa-trie==0.7.2'],
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
-        'Programming Language :: Python',
-        'Operating System :: OS Independent',
-        'Natural Language :: English',
-        'License :: OSI Approved :: MIT License',
-        'License :: Public Domain',
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
     ],
     license='MIT (http://opensource.org/licenses/MIT)',
 )
