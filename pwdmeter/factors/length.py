@@ -23,7 +23,7 @@ class LengthFactor(Factor):
         super(LengthFactor, self).__init__(**kwargs)
 
     def _test(self, value):
-        if len(value) < self.length:
+        if len(value.encode('utf-8')) < self.length:
             score = (1.0 - self.lx_min) * (old_div(float(len(value)), self.length)) ** 2
         else:
             score = self.ajust(len(value))

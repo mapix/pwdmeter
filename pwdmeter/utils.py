@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from builtins import object
+from io import open
 
 import marisa_trie
 from future.utils import with_metaclass
@@ -23,7 +24,7 @@ class Resource(with_metaclass(Singleton, object)):
         raise NotImplementedError
 
     def __init__(self):
-        f = open(self.path)
+        f = open(self.path, 'rt')
         self.trie = marisa_trie.Trie([x for x in f])
         f.close()
 

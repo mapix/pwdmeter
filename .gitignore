@@ -17,3 +17,5 @@ venv
 .ropeproject
 MANIFEST
 venv3
+.tox/
+.cache/
